@@ -30,7 +30,7 @@
     <string name="reboot_failed">重启设备失败。请使用设备的标准重启功能。</string>
     <string name="auto_flash_note">当你按下 OK 后，%s 将会被自动刷入设备。</string>
     <string name="reboot_confirmation">您现在要重启设备吗？</string>
-    <string name="install_warning_title">小心！</string>
+    <string name="install_warning_title">小心！知道了</string>
     <string name="dont_show_again">不要再显示这个</string>
     <string name="install_known_issue">Xposed 与您的 ROM 似乎存在已知的问题（“%s”）。安装 Xposed 可能无法工作或引发严重问题。点击此处获知问题详情。</string>
     <string name="framework_active">Xposed 框架 %s 版已激活。</string>

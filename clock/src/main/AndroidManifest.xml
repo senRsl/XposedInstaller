@@ -1,0 +1,31 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dc.test.xposed.clock">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        >
+        <!-- 是否是xposed模块，xposed根据这个来判断是否是模块 -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <!-- 模块描述，显示在xposed模块列表那里第二行 -->
+        <meta-data
+            android:name="xposeddescription"
+            android:value="是个表啊" />
+        <!-- 最低xposed版本号(lib文件名可知) -->
+        <meta-data
+            android:name="xposedminversion"
+            android:value="30" />
+
+        <!-- 没有了LAUNCHER虽然不能用快捷的箭头，但是右侧gradle installDebug是可以的 -->
+        <!--<activity android:name="dc.test.xposed.TestActivity" >-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN"/>-->
+        <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+        <!--<data android:host="TestActivity" android:scheme="dc.test.xposed"/>-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+    </application>
+</manifest>
