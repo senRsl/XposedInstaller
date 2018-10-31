@@ -1,2 +1,8 @@
 dc.test.xposed.clock.TestClock
 dc.test.xposed.amap.TestAmap
+dc.test.xposed.isroot.TestRoot
+dc.test.xposed.build.TestBuild
+dc.test.xposed.cpu.TestCpu
+dc.test.xposed.tel.TestTel
+dc.test.xposed.screen.TestScreen
+dc.test.xposed.gl.TestGraphic
