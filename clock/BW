@@ -1,0 +1,147 @@
+# 名词
+    MCC，Mobile Country Code，移动国家代码（中国的为460）；
+    MNC，Mobile Network Code，移动网络号码（中国移动为00，中国联通为01）；
+    LAC，Location Area Code，位置区域码；
+    CID，Cell Identity，基站编号，是个16位的数据（范围是0到65535
+    BSSS，Base station signal strength，基站信号强度
+    电信 cdma 基站 sid,nid,bid
+    SID（System id）是系统识别码，每个地级市只有一个sid，是唯一的
+    NID(Network id)是网络识别码，由各本地网管理，也就是由地级分公司分配。每个地级市可能有1到3个nid。
+    BID （Basestation id）表示的是网络中的某一个小区，可以理解为基站。
+
+
+    归属网络识别码（HNI，Home Network Identity）是MNC与MCC的组合。用于标识用户所归属的网络（这里的网络等同于PLMN）
+
+# 示例
+
+	Country,SimOperatorName,NetworkOperatorName,OperatorCode
+    DataNetworkType,PhoneType,NetworkType,Wifi avoid
+
+
+    39,116,1,4213,1473,GSM,460000,name
+    39,116,10,4342,8187523,LTE,46001,name
+
+
+    MCC: 310
+    MNC: 260
+    LAC: 16330
+    CID: 22277890
+    Radio Type: UMTS
+
+    Latitude: 33.89449
+    Longitude: -118.214362
+    Range: 1000 m
+
+	7 measurements
+    Created: 2015-04-21T22:35:01.000Z
+    Updated: 2016-08-20T20:36:35.000Z*/
+
+
+    谷歌地图：22.6342875809,113.9501827029
+    百度地图：22.6400537426,113.9567384019
+    腾讯高德：22.6342926938,113.9501953125
+    图吧地图：22.6351332138,113.9421110825
+    谷歌地球：22.6372832138,113.9453010825
+    北纬N22°38′14.22″ 东经E113°56′43.08″
+
+    靠近：中国广东省深圳市南山区
+    周边：佳和购物广场 约39米
+    参考：广东省深圳市南山区西丽街道白芒社区东北方向约1.14公里
+
+    定位类型: 5
+    经    度    : 116.45917
+    纬    度    : 39.906716
+    精    度    : 100.0米
+    提供者    : lbs
+    速    度    : 0.0米/秒
+    角    度    : 0.0
+    星    数    : 0
+    国    家    : 中国
+    省            : 北京市
+    市            : 北京市
+    城市编码 : 010
+    区            : 朝阳区
+    区域 码   : 110105
+    地    址    : 北京市朝阳区景恒街67号靠近北京银泰中心in01
+    兴趣点    : 北京银泰中心in01
+    定位时间: 2018-11-08 14:58:20
+    ***定位质量报告***
+    * WIFI开关：开启
+    * GPS状态：GPS状态正常
+    * GPS星数：0
+    * 网络类型：WIFI
+    * 网络耗时：165
+    ****************
+    回调时间: 2018-11-08 14:58:20
+
+    MCC: 460
+    MNC: 0
+    LAC: 4213
+    CID: 1473
+    Radio Type: GSM
+
+    Latitude: 39.91539
+    Longitude: 116.405228
+    Range: 1000 m
+
+    10 measurements
+    Created: 2016-03-22T09:25:37.000Z
+    Updated: 2017-02-18T11:29:47.000Z
+
+    MCC: 310
+    MNC: 260
+    LAC: 14450
+    CID: 44909059
+    Radio Type: LTE
+
+    Latitude: 37.776868
+    Longitude: -122.432061
+    Range: 4829 m
+
+    34 measurements
+    Created: 2017-11-21T00:52:51.000Z
+    Updated: 2018-06-25T03:56:28.000Z
+
+
+    MCC: 440
+    MNC: 20
+    LAC: 24579
+    CID: 5996547
+    Radio Type: LTE
+
+    Latitude: 35.170669555664
+    Longitude: 136.88484191895
+    Range: 1000 m
+
+    5 measurements
+    Created: 2016-03-24T11:56:59.000Z
+    Updated: 2017-01-19T08:16:04.000Z
+
+
+    MCC: 440
+    MNC: 51
+    LAC: 41479
+    CID: 70696704
+    Radio Type: LTE
+
+    Latitude: 35.157623
+    Longitude: 136.904068
+    Range: 1000 m
+
+    8 measurements
+    Created: 2016-08-06T14:24:22.000Z
+    Updated: 2016-12-29T05:55:13.000Z
+
+    MCC: 208
+    MNC: 1
+    LAC: 29953
+    CID: 52062
+    Radio Type: GSM
+
+    Latitude: 48.85987
+    Longitude: 2.327022
+    Range: 2075 m
+
+    96 measurements
+    Created: 2012-08-13T19:29:24.000Z
+    Updated: 2017-09-13T22:43:31.000Z

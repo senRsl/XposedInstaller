@@ -15,6 +15,6 @@ public class TestScreen implements IXposedHookLoadPackage {
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam loadPackageParam) throws Throwable {
         if (!loadPackageParam.packageName.equals(Constants.PKG_TEST))
             return;
-        new ScreenUtil().Display(loadPackageParam);
+        //new ScreenUtil().Display(loadPackageParam);
     }
 }

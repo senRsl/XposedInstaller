@@ -28,6 +28,7 @@ android {
 dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'dc.common:logger:latest.integration'
 
     compileOnly files('libs/XposedBridgeApi-54.jar')
 

@@ -2,6 +2,7 @@ package dc.test.xposed.amap;
 
 import android.location.Location;
 
+import dc.test.xposed.Constants;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
@@ -23,13 +24,21 @@ public class TestAmap implements IXposedHookLoadPackage {
 
         XposedBridge.log("加载包: " + loadPackageParam.packageName);
 
-        if (loadPackageParam.packageName.equals("com.autonavi.minimap") | loadPackageParam.packageName.equals("com.tencent.mm")
-                || loadPackageParam.packageName.equals("dc.test.xposed.anti") || loadPackageParam.packageName.equals("dc.test.xposed.anti.debug")) {
+        if (loadPackageParam.packageName.equals("com.autonavi.minimap") || loadPackageParam.packageName.equals("com.tencent.mm")
+                || loadPackageParam.packageName.equals("dc.test.xposed.anti") || loadPackageParam.packageName.equals("dc.test.xposed.anti.debug")
+                || loadPackageParam.packageName.equals(Constants.PKG_TEST)) {
 
             XposedBridge.log("进入" + loadPackageParam.packageName);
 
 
-            HookUtils.HookAndChange(loadPackageParam.classLoader, 33.89449, -118.214362, 16330, 22277890);
+//            HookUtils.HookAndChange(loadPackageParam.classLoader, 33.89449, -118.214362, 16330, 22277890);
+
+//            new LocationHookUtils(loadPackageParam.classLoader, 39.91539, 116.405228, 4213, 1473, LocationHookUtils.TYPE_GSM, 46001, 300).hook(); //王府井
+//            new LocationHookUtils(loadPackageParam.classLoader, 37.776868, -122.432061, 14450, 44909059, LocationHookUtils.TYPE_LTE, 310260,300).hook();//旧金山
+//            new LocationHookUtils(loadPackageParam.classLoader, 38.894684, -77.037576, 7997, 160434770, LocationHookUtils.TYPE_UMTS, 310410, 300).hook();//华盛顿
+//            new LocationHookUtils(loadPackageParam.classLoader, 35.170669, 136.884841, 24579, 5996547, LocationHookUtils.TYPE_LTE, 44020, 300).hook();//名古屋 微信无效
+            new LocationHookUtils(loadPackageParam.classLoader, 35.157623, 136.904068, 41479, 70696704, LocationHookUtils.TYPE_LTE, 44051, 300).hook();//名古屋 微信无效
+//            new LocationHookUtils(loadPackageParam.classLoader, 48.85987, 2.327022, 29953, 52062, LocationHookUtils.TYPE_GSM, 20801, 300).hook();//巴黎 微信无效
 
         }
     }
@@ -54,30 +63,5 @@ public class TestAmap implements IXposedHookLoadPackage {
         });
     }
 
-//    /*MCC: 310
-//    MNC: 260
-//    LAC: 16330
-//    CID: 22277890
-//    Radio Type: UMTS
-//
-//    Latitude: 33.89449
-//    Longitude: -118.214362
-//    Range: 1000 m
-//
-//7 measurements
-//    Created: 2015-04-21T22:35:01.000Z
-//    Updated: 2016-08-20T20:36:35.000Z*/
-
-
-//    谷歌地图：22.6342875809,113.9501827029
-//    百度地图：22.6400537426,113.9567384019
-//    腾讯高德：22.6342926938,113.9501953125
-//    图吧地图：22.6351332138,113.9421110825
-//    谷歌地球：22.6372832138,113.9453010825
-//    北纬N22°38′14.22″ 东经E113°56′43.08″
-//
-//    靠近：中国广东省深圳市南山区
-//    周边：佳和购物广场 约39米
-//    参考：广东省深圳市南山区西丽街道白芒社区东北方向约1.14公里
 
 }
