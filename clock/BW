@@ -151,3 +151,17 @@
     SIM卡号:898600331615F2863203
     基站信息:{"network_type":"CHINA MOBILE","mcc":460,"MNC":0,"LAC":18809,"CID":25447248}
     Mac地址:02:00:00:00:00:00
+
+    MCC: 460
+    MNC: 1
+    LAC: 6262
+    CID: 9441301
+    Radio Type: LTE
+
+    Latitude: 31.237106
+    Longitude: 121.48613
+    Range: 1000 m
+
+    3 measurements
+    Created: 2016-09-02T15:59:13.000Z
+    Updated: 2017-04-14T04:49:14.000Z
