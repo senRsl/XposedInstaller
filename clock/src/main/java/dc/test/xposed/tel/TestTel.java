@@ -15,6 +15,6 @@ public class TestTel implements IXposedHookLoadPackage {
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam loadPackageParam) throws Throwable {
         if (!loadPackageParam.packageName.equals(Constants.PKG_TEST))
             return;
-        new PhoneUtil(loadPackageParam);
+        //new PhoneUtil(loadPackageParam);
     }
 }

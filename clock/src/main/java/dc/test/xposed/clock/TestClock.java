@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
@@ -30,5 +31,18 @@ public class TestClock implements IXposedHookLoadPackage {
                 tv.setTextColor(Color.RED);
             }
         });
+
+
+        findAndHookMethod("com.android.keyguard.CarrierText", loadPackageParam.classLoader, "updateCarrierText", new XC_MethodHook() {
+
+            @Override
+            protected void afterHookedMethod(XC_MethodHook.MethodHookParam param) throws Throwable {
+
+                TextView mLabel = (TextView) param.thisObject;
+                mLabel.setText("大中华局域网");
+                XposedBridge.log("Changing Carrier Done");
+            }
+        });
+
     }
 }

@@ -35,15 +35,17 @@ public class LocationHookUtils {
 
     private int hni;
     private int mcc = 460, mnc = 1;
-    private int sid = 0, pci = 300, psc = 300;
+    private int sid = 300, pci = 300, psc = 300;
 
     private int wifiState = 1;
 
-    private String mac = "00-00-00-00-00-00-00-00";
+    private String mac = "02-00-00-00-00-00";
     private String wifiSsid = "SENRSL24";
-    private String wifiMac = "00-00-00-00-00-00-00-00";
+    private String wifiMac = "02-00-00-00-00-00";
 
-    private float locAccuracy = 100f, speed = 1.05f, bearing = 30.01f, altitude = 250.86f, bearingAcc = 30.8f, speedAcc = 20.0f, altitudeAcc = 80.0f;
+    private float locAccuracy = 100f, speed = 1.05f, bearing = 30.01f, altitude = 250.86f, bearingAcc = 30.8f, speedAcc = 20.0f, altitudeAcc = 80.0f;//这串没一个管用的
+
+    private String operatorName = "China Mobile", countryIso = "CN", imei = "898600331615F2863203", imsi = "460021373225227";
 
 
     public LocationHookUtils(ClassLoader classLoader, double lat, double lng, int lac, int cid, String radioType, int hni) {
@@ -69,26 +71,23 @@ public class LocationHookUtils {
         init();
     }
 
-    public LocationHookUtils(ClassLoader classLoader, double lat, double lng, int lac, int cid, String radioType, int hni, String mac, String wifiSsid, String wifiMac, float locAccuracy, int sid) {
-        this.classLoader = classLoader;
-        this.lat = lat;
-        this.lng = lng;
-        this.lac = lac;
-        this.cid = cid;
-        this.radioType = radioType;
-        this.hni = hni;
-        this.mac = mac;
-        this.wifiSsid = wifiSsid;
-        this.wifiMac = wifiMac;
-        this.locAccuracy = locAccuracy;
-        this.sid = sid;
-        init();
-    }
-
     private void init() {
         mcc = Integer.valueOf(String.valueOf(hni).substring(0, 3));
         mnc = Integer.valueOf(String.valueOf(hni).substring(3));
         pci = psc = sid;
+    }
+
+    public void initWifi(String mac, String wifiSsid, String wifiMac) {
+        this.mac = mac;
+        this.wifiSsid = wifiSsid;
+        this.wifiMac = wifiMac;
+    }
+
+    public void initOperator(String operatorName, String countryIso, String imei, String imsi) {
+        this.operatorName = operatorName;
+        this.countryIso = countryIso;
+        this.imei = imei;
+        this.imsi = imsi;
     }
 
 
@@ -124,6 +123,7 @@ public class LocationHookUtils {
         }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            //获取周围基站信息
             XposedHelpers.findAndHookMethod("android.telephony.TelephonyManager", classLoader, "getNeighboringCellInfo", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
@@ -146,6 +146,63 @@ public class LocationHookUtils {
                 }
             });
         }
+
+
+        //返回MCC+MNC代码 (SIM卡运营商国家代码和运营商网络代码)(IMSI)
+        XposedHelpers.findAndHookMethod("android.telephony.TelephonyManager", classLoader, "getNetworkOperator", new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                param.setResult(String.valueOf(hni));
+            }
+        });
+
+
+        //返回移动网络运营商的名字(SPN)
+        XposedHelpers.findAndHookMethod("android.telephony.TelephonyManager", classLoader, "getNetworkOperatorName", new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                param.setResult(operatorName);
+            }
+        });
+
+        //返回SIM卡提供商的国家代码
+        XposedHelpers.findAndHookMethod("android.telephony.TelephonyManager", classLoader, "getSimCountryIso", new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                param.setResult(countryIso);
+            }
+        });
+
+        //返回MCC+MNC代码 (SIM卡运营商国家代码和运营商网络代码)(IMSI)
+        XposedHelpers.findAndHookMethod("android.telephony.TelephonyManager", classLoader, "getSimOperator", new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                param.setResult(String.valueOf(hni));
+            }
+        });
+
+        XposedHelpers.findAndHookMethod("android.telephony.TelephonyManager", classLoader, "getSimOperatorName", new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                param.setResult(operatorName);
+            }
+        });
+
+        //回SIM卡的序列号(IMEI)
+        XposedHelpers.findAndHookMethod("android.telephony.TelephonyManager", classLoader, "getSimSerialNumber", new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                param.setResult(imei);
+            }
+        });
+        //返回用户唯一标识，比如GSM网络的IMSI编号
+        XposedHelpers.findAndHookMethod("android.telephony.TelephonyManager", classLoader, "getSubscriberId", new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                param.setResult(imsi);
+            }
+        });
+
 
         XposedHelpers.findAndHookMethod("android.net.wifi.WifiManager", classLoader, "getScanResults", new XC_MethodHook() {
             @Override
