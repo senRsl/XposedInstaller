@@ -1,1 +1,1 @@
-include ':app', ':clock', ':base'
+include ':app', ':clock'

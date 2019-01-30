@@ -8,4 +8,5 @@ package dc.test.xposed;
  */
 public class Constants {
     public static final String PKG_TEST = "com.eg.android.AlipayGphone.debug";
+
 }
