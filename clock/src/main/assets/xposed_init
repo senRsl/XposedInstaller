@@ -6,3 +6,4 @@ dc.test.xposed.cpu.TestCpu
 dc.test.xposed.tel.TestTel
 dc.test.xposed.screen.TestScreen
 dc.test.xposed.gl.TestGraphic
+dc.test.xposed.camera.TestCamera

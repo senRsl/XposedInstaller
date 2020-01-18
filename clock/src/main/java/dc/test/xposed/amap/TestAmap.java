@@ -1,7 +1,6 @@
 package dc.test.xposed.amap;
 
 import android.location.Location;
-
 import dc.test.xposed.Constants;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -38,7 +37,7 @@ public class TestAmap implements IXposedHookLoadPackage {
 //            new LocationHookUtils(loadPackageParam.classLoader, 38.894684, -77.037576, 7997, 160434770, LocationHookUtils.TYPE_UMTS, 310410, 300).hook();//华盛顿
 //            new LocationHookUtils(loadPackageParam.classLoader, 35.170669, 136.884841, 24579, 5996547, LocationHookUtils.TYPE_LTE, 44020, 300).hook();//名古屋 微信无效
 //            new LocationHookUtils(loadPackageParam.classLoader, 35.157623, 136.904068, 41479, 70696704, LocationHookUtils.TYPE_LTE, 44051, 300).hook();//名古屋 微信无效
-            new LocationHookUtils(loadPackageParam.classLoader, 35.184219, 136.895067, 16390, 67131648, LocationHookUtils.TYPE_LTE, 44010, 300).hook();//名古屋 这个就可以了，但我这个地图却没有这个基站。。。。
+//            new LocationHookUtils(loadPackageParam.classLoader, 35.184219, 136.895067, 16390, 67131648, LocationHookUtils.TYPE_LTE, 44010, 300).hook();//名古屋 这个就可以了，但我这个地图却没有这个基站。。。。
 //            new LocationHookUtils(loadPackageParam.classLoader, 48.85987, 2.327022, 29953, 52062, LocationHookUtils.TYPE_GSM, 20801, 300).hook();//巴黎 微信无效
 //            new LocationHookUtils(loadPackageParam.classLoader, 31.237106, 121.48613, 6262, 9441301, LocationHookUtils.TYPE_LTE, 46001, 300).hook();//上海
 
