@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">attendance</string>
+    <string name="author">senRsl \n senRsl@163.com</string>
+
+    <string name="loc_lat">纬度</string>
+    <string name="loc_lat_value">39.998835</string>
+    <string name="loc_lng">经度</string>
+    <string name="loc_lng_value">116.483374</string>
+
+    <string name="pic_path">图片路径</string>
+    <string name="pic_path_value">/mnt/sdcard/SENRSL/dance.png</string>
+
+    <string name="target">目标,目标</string>
+    <string name="save">save</string>
+</resources>
