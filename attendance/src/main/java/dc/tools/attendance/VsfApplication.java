@@ -8,7 +8,7 @@ import dc.android.common.BaseApplication;
  * @Package: dc.tools.attendance
  * @CreateTime: 2020/11/20 5:32 PM
  */
-public class AttendanceApplication extends BaseApplication {
+public class VsfApplication extends BaseApplication {
 
 
 }

@@ -11,5 +11,6 @@
     <string name="pic_path_value">/mnt/sdcard/SENRSL/dance.png</string>
 
     <string name="target">目标,目标</string>
+    <string name="target_value">com.tencent.wework,com.alibaba.android.rimet</string>
     <string name="save">save</string>
 </resources>
