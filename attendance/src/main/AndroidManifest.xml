@@ -12,7 +12,7 @@
 
         <activity
             android:name=".AboutActivity"
-            android:theme="@style/FullTheme">
+            android:theme="@style/WelcomeTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
