@@ -7,6 +7,7 @@ import android.widget.EditText;
 import dc.android.common.activity.BaseActivity;
 import dc.android.common.utils.SharePreferencesUtils;
 import dc.common.Logger;
+import dc.tools.xposed.XposedUtils;
 
 import static dc.common.Global.EMPTY;
 import static dc.tools.attendance.AttendanceContext.KEY_LAT;
@@ -40,6 +41,11 @@ public class AttendanceActivity extends BaseActivity {
         etTarget = findViewById(R.id.et_target);
 
         sp = new SharePreferencesUtils(this);
+
+        etLat.setText(sp.getSharedPreferencesValue(KEY_LAT, EMPTY));
+        etLng.setText(sp.getSharedPreferencesValue(KEY_LNG, EMPTY));
+        etPath.setText(sp.getSharedPreferencesValue(KEY_PATH, EMPTY));
+        etTarget.setText(sp.getSharedPreferencesValue(KEY_TARGET, EMPTY));
     }
 
 
@@ -64,6 +70,8 @@ public class AttendanceActivity extends BaseActivity {
                 sp.getSharedPreferencesValue(KEY_PATH, EMPTY),
                 sp.getSharedPreferencesValue(KEY_TARGET, EMPTY)
         );
+
+        XposedUtils.setTarget(null);
     }
 
 }

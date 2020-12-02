@@ -2,6 +2,7 @@ package dc.tools.attendance;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import dc.android.common.activity.BaseAboutActivity;
 
 /**
@@ -15,7 +16,10 @@ public class AboutActivity extends BaseAboutActivity {
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        //setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_welcome);
+
+        TextView tvTime = findViewById(R.id.tv_time);
+        tvTime.setText(BuildConfig.BUILD_TIME);
     }
 
     @Override

@@ -14,6 +14,8 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        buildConfigField('String', 'BUILD_TIME', "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+
     }
 
     compileOptions {

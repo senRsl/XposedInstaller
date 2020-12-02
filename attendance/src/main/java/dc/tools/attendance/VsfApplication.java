@@ -1,6 +1,7 @@
 package dc.tools.attendance;
 
 import dc.android.common.BaseApplication;
+import dc.common.Logger;
 
 /**
  * @author senrsl
@@ -11,4 +12,9 @@ import dc.android.common.BaseApplication;
 public class VsfApplication extends BaseApplication {
 
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Logger.w("POWER START");
+    }
 }
