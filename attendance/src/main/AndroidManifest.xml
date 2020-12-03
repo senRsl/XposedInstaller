@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dc.tools.attendance">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".VsfApplication"
         android:allowBackup="false"
@@ -34,6 +37,18 @@
         </activity>
 
         <activity android:name=".AttendanceActivity" />
+
+        <service
+            android:name=".service.AttendanceService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+
+            <intent-filter>
+                <action android:name="dc.tools.attendance.IDataSupport" />
+            </intent-filter>
+
+        </service>
 
     </application>
 </manifest>

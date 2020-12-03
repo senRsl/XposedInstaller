@@ -1,5 +1,7 @@
 package dc.tools.attendance;
 
+import java.io.IOException;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -7,8 +9,10 @@ import android.widget.EditText;
 import dc.android.common.activity.BaseActivity;
 import dc.android.common.utils.SharePreferencesUtils;
 import dc.common.Logger;
-import dc.tools.xposed.XposedUtils;
+import dc.common.utils.FileUtils;
+import dc.common.utils.StringUtils;
 
+import static dc.android.common.CoreContext.SPLIT_COMMA;
 import static dc.common.Global.EMPTY;
 import static dc.tools.attendance.AttendanceContext.KEY_LAT;
 import static dc.tools.attendance.AttendanceContext.KEY_LNG;
@@ -65,13 +69,29 @@ public class AttendanceActivity extends BaseActivity {
         sp.saveSharedPreferencesValue(KEY_PATH, etPath.getText().toString());
         sp.saveSharedPreferencesValue(KEY_TARGET, etTarget.getText().toString());
 
-        Logger.w(this, sp.getSharedPreferencesValue(KEY_LAT, EMPTY),
-                sp.getSharedPreferencesValue(KEY_LNG, EMPTY),
-                sp.getSharedPreferencesValue(KEY_PATH, EMPTY),
-                sp.getSharedPreferencesValue(KEY_TARGET, EMPTY)
+
+        String str = StringUtils.sub(
+                etLat.getText().toString(), SPLIT_COMMA,
+                etLng.getText().toString(), SPLIT_COMMA,
+                etPath.getText().toString(), SPLIT_COMMA,
+                etTarget.getText().toString(), SPLIT_COMMA
         );
 
-        XposedUtils.setTarget(null);
+        try {
+            FileUtils.str2File(AttendanceContext.getSharedConfig(), str);
+            //FileUtils.is2File(new ByteArrayInputStream(str.getBytes()),AttendanceContext.getSharedConfig());
+
+            Logger.w(this, sp.getSharedPreferencesValue(KEY_LAT, EMPTY),
+                    sp.getSharedPreferencesValue(KEY_LNG, EMPTY),
+                    sp.getSharedPreferencesValue(KEY_PATH, EMPTY),
+                    sp.getSharedPreferencesValue(KEY_TARGET, EMPTY)
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+            Logger.w(this, e.getMessage());
+        }
+
+
     }
 
 }

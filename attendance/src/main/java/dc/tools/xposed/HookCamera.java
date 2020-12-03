@@ -1,6 +1,7 @@
 package dc.tools.xposed;
 
-import android.util.Log;
+import dc.common.utils.FileUtils;
+import dc.tools.attendance.AttendanceContext;
 import dc.tools.attendance.BuildConfig;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XSharedPreferences;
@@ -10,7 +11,6 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 import static dc.android.common.CoreContext.DC_SERVICE_DATAMANAGER_SP;
 import static dc.common.Global.EMPTY;
 import static dc.tools.attendance.AttendanceContext.KEY_PATH;
-import static dc.tools.attendance.AttendanceContext.KEY_TARGET;
 
 /**
  * @author senrsl
@@ -26,15 +26,20 @@ public class HookCamera implements IXposedHookLoadPackage {
 //        XposedBridge.log(getClass().getSimpleName() + " hook camera " + loadPackageParam.packageName + " - " + XposedUtils.isNeedHook(loadPackageParam.packageName));
         XposedBridge.log(getClass().getSimpleName() + " hook camera " + loadPackageParam.packageName);
 
+
+        String str = FileUtils.file2Str(AttendanceContext.getSharedConfig());
+
+        XposedBridge.log("read : " + str);
+
         //if (!XposedUtils.isNeedHook(loadPackageParam.packageName)) return;
-        XSharedPreferences xsp = new XSharedPreferences(BuildConfig.APPLICATION_ID, DC_SERVICE_DATAMANAGER_SP);
-        //xsp.makeWorldReadable();
-
-        String target = xsp.getString(KEY_TARGET, null);
-
-        String picPath = getPicPath();
-
-        Log.i("TEST", "hook " + target + " 1 " + BuildConfig.APPLICATION_ID + " 2 " + DC_SERVICE_DATAMANAGER_SP + " 3 " + KEY_TARGET + " 4 " + picPath);
+//        XSharedPreferences xsp = new XSharedPreferences(BuildConfig.APPLICATION_ID, DC_SERVICE_DATAMANAGER_SP);
+//        //xsp.makeWorldReadable();
+//
+//        String target = xsp.getString(KEY_TARGET, null);
+//
+//        String picPath = getPicPath();
+//
+//        Log.i("TEST", "hook " + target + " 1 " + BuildConfig.APPLICATION_ID + " 2 " + DC_SERVICE_DATAMANAGER_SP + " 3 " + KEY_TARGET + " 4 " + picPath);
 
 
 //        XposedBridge.log(getClass().getSimpleName() + "  hook camera on " + loadPackageParam.packageName + " picPath: " + picPath);

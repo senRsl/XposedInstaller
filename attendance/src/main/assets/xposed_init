@@ -1,2 +1,4 @@
+dc.tools.xposed.HookOnZygoteInit
+dc.tools.xposed.HookOnInit
 dc.tools.xposed.HookLocation
 dc.tools.xposed.HookCamera
